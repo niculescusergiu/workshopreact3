@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar.jsx";
+import MainContent from "./components/MainContent.jsx";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [meetings, setMeetings] = useState([
+    { id: 1, title: "Project Kickoff", date: "2024-05-15", time: "10:00 AM", level: "Team" },
+    { id: 2, title: "Quarterly Review", date: "2024-06-01", time: "02:00 PM", level: "Department" },
+  ]);
+
+  const addMeeting = (newMeeting) => setMeetings((prev) => [...prev, newMeeting]);
+
+  const deleteMeeting = (id) => setMeetings((prev) => prev.filter((meeting) => meeting.id !== id));
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      <Sidebar />
+      <MainContent meetings={meetings} onAddMeeting={addMeeting} onDeleteMeeting={deleteMeeting} />
+    </div>
+  );
 }
 
-export default App
+export default App;
+

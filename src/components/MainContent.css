@@ -1,0 +1,32 @@
+/* MainContent styles for proper alignment and spacing */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  h5 {
+    font-weight: bold;
+  }
+  
+  input,
+  select,
+  textarea {
+    border-radius: 6px;
+  }
+  
+  button {
+    border-radius: 6px;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  
